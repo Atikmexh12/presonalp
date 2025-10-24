@@ -83,7 +83,7 @@ while (have_posts()) :
                         </div>
                     <?php endif; ?>
                     
-                    <div style="font-size: 3rem; font-weight: bold; color: #ff6b35; margin-bottom: 2rem;">
+                    <div style="font-size: 3rem; font-weight: bold, color: #ff6b35; margin-bottom: 2rem;">
                         <?php echo format_car_price($price); ?>
                     </div>
                     
@@ -216,7 +216,28 @@ while (have_posts()) :
                     endwhile;
                     wp_reset_postdata();
                 else :
-                    echo '<p style="text-align: center; color: #666;">No similar vehicles found.</p>';
+                    // Show helpful message + placeholder car images when no related vehicles found
+                    ?>
+                    <div style="text-align:center; color:#666; margin-bottom:1rem;">
+                        <p>No similar vehicles found. Try adjusting your search criteria.</p>
+                        <p>Here are some cars you might like:</p>
+                    </div>
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+                        <?php
+                        // Replace these URLs with theme images if you add them to your theme (recommended).
+                        $placeholders = array(
+                            esc_url('https://via.placeholder.com/600x400?text=Car+1'),
+                            esc_url('https://via.placeholder.com/600x400?text=Car+2'),
+                            esc_url('https://via.placeholder.com/600x400?text=Car+3'),
+                        );
+
+                        foreach ($placeholders as $i => $img_url) : ?>
+                            <a href="<?php echo esc_url( get_post_type_archive_link('car') ); ?>" style="display:block; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+                                <img src="<?php echo $img_url; ?>" alt="Suggested car <?php echo $i + 1; ?>" style="width:100%; height:160px; object-fit:cover; display:block;">
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php
                 endif;
                 ?>
             </div>

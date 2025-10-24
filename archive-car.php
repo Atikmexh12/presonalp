@@ -224,6 +224,7 @@ get_header(); ?>
                 <div style="text-align: center; padding: 4rem 0;">
                     <h2 style="color: #666; margin-bottom: 1rem;">No vehicles found</h2>
                     <p style="color: #999; margin-bottom: 2rem;">Try adjusting your search criteria</p>
+                    <img src="a.jpg" alt="adsdassd">
                     <a href="<?php echo get_post_type_archive_link('car'); ?>" class="cta-button">View All Cars</a>
                 </div>
             <?php
