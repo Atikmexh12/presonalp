@@ -24,42 +24,7 @@ get_header(); ?>
         <div class="container">
             <form class="search-form" method="GET" action="<?php echo home_url('/'); ?>">
                 <select name="car_make">
-                    <option value="">Select Make</option>
-                    <?php
-                    $makes = get_terms(array(
-                        'taxonomy' => 'car_make',
-                        'hide_empty' => false,
-                    ));
-                    foreach ($makes as $make) {
-                        $selected = (isset($_GET['car_make']) && $_GET['car_make'] == $make->slug) ? 'selected' : '';
-                        echo '<option value="' . $make->slug . '" ' . $selected . '>' . $make->name . '</option>';
-                    }
-                    ?>
-                </select>
-                
-                <select name="car_model">
-                    <option value="">Select Model</option>
-                    <?php
-                    $models = get_terms(array(
-                        'taxonomy' => 'car_model',
-                        'hide_empty' => false,
-                    ));
-                    foreach ($models as $model) {
-                        $selected = (isset($_GET['car_model']) && $_GET['car_model'] == $model->slug) ? 'selected' : '';
-                        echo '<option value="' . $model->slug . '" ' . $selected . '>' . $model->name . '</option>';
-                    }
-                    ?>
-                </select>
-                
-                <input type="number" name="min_price" placeholder="Min Price" value="<?php echo isset($_GET['min_price']) ? $_GET['min_price'] : ''; ?>">
-                <input type="number" name="max_price" placeholder="Max Price" value="<?php echo isset($_GET['max_price']) ? $_GET['max_price'] : ''; ?>">
-                <input type="number" name="max_mileage" placeholder="Max Mileage" value="<?php echo isset($_GET['max_mileage']) ? $_GET['max_mileage'] : ''; ?>">
-                
-                <button type="submit" class="search-button">Search Cars</button>
-            </form>
-        </div>
-    </section>
-
+                  
     <!-- Cars Listing Section -->
     <section id="cars" class="cars-section">
         <div class="container">
@@ -145,34 +110,7 @@ get_header(); ?>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🚗</div>
-                    <h3 class="feature-title">Quality Vehicles</h3>
-                    <p>All our cars undergo thorough inspection to ensure quality and reliability.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <h3 class="feature-title">Best Prices</h3>
-                    <p>Competitive pricing with transparent costs and no hidden fees.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔧</div>
-                    <h3 class="feature-title">Expert Service</h3>
-                    <p>Professional service from experienced automotive specialists.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <h3 class="feature-title">Warranty</h3>
-                    <p>Comprehensive warranty coverage for peace of mind.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
 </main>
 

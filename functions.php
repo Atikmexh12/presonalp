@@ -354,4 +354,12 @@ function autodealer_add_sample_data() {
     }
 }
 add_action('after_switch_theme', 'autodealer_add_sample_data');
+
+function autodealer_register_menus() {
+    register_nav_menus(array(
+        'main-menu' => __('Main Menu', 'autodealer-pro'),
+    ));
+}
+add_action('init', 'autodealer_register_menus');
+
 ?>

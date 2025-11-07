@@ -53,3 +53,12 @@ function autodealer_fallback_menu() {
     echo '</ul>';
 }
 ?>
+<nav>
+    <?php
+    wp_nav_menu(array(
+        'theme_location' => 'main-menu',
+        'container' => false,
+        'menu_class' => 'nav-menu',
+    ));
+    ?>
+</nav>
